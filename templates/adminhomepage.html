@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+  <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand">WELCOME ADMIN</a>
+    {% comment %} <FORM CLASS="FORM-INLINE">
+      <INPUT CLASS="FORM-CONTROL MR-SM-2" TYPE="SEARCH" PLACEHOLDER="SEARCH" ARIA-LABEL="SEARCH">
+      <BUTTON CLASS="BTN BTN-OUTLINE-SUCCESS MY-2 MY-SM-0" TYPE="SUBMIT">SEARCH</BUTTON>
+    </FORM> {% endcomment %}
+    <a class="btn btn-danger" href="/adminlogout/">Logout</a>
+  </nav>
+  <form action="/addpizza/" method="post">
+    {% csrf_token %}
+    <div class="container" style="width: 530px;display: block;margin: auto">
+      <input type="text" class="form-control" placeholder="Name" name="pizzaname" style="width: 200px;
+      display: inline;margin: auto">
+      <input type="text" class="form-control" placeholder="Price" name="pizzaprice" style="width: 200px;
+      display: inline;margin: auto">
+      <input style="display: inline" type="submit" name="" value="Add" class="btn btn-success">
+
+    </div>
+  </form>
+  <div class="container" style="width: 50%;display: block;margin: auto;margin-top: 80px">
+    <table style="width: 50%">
+      <tr style="border-bottom: 1px solid #fe6e00">
+        <th style="background-color: #fe6e00; color: white">Pizza Name</th>
+        <th style="background-color: #fe6e00; color: white">Pizza Price</th>
+        <th></th>
+        <th></th>
+      </tr>
+      {% for pizza in pizzas %}
+      <tr style="border-bottom: 1px solid #fe6e00">
+        <th>{{pizza.name}}</th>
+        <th>{{pizza.price}}.00 DZD</th>
+        <th><a href="/editpizza/{{pizza.id}}" class="btn btn-warning">EDIT</a></th>
+        <th><a href="/deletepizza/{{pizza.id}}" class="btn btn-danger">DELET</a></th>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+{% endblock content %}

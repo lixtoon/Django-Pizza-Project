@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+  <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand">EDIT {{pizzapk}}</a>
+    {% comment %} <FORM CLASS="FORM-INLINE">
+      <INPUT CLASS="FORM-CONTROL MR-SM-2" TYPE="SEARCH" PLACEHOLDER="SEARCH" ARIA-LABEL="SEARCH">
+      <BUTTON CLASS="BTN BTN-OUTLINE-SUCCESS MY-2 MY-SM-0" TYPE="SUBMIT">SEARCH</BUTTON>
+    </FORM> {% endcomment %}
+    <a class="btn btn-danger" href="/pageback/">Back</a>
+  </nav>
+  <form action="/editpizza/{{pizzapk}}/update/" method="post">
+    {% csrf_token %}
+    <div class="container" style="width: 530px;display: block;margin: auto">
+      <input type="text" class="form-control" placeholder="Name" name="pizzaname" style="width: 200px;
+      display: inline;margin: auto">
+      <input type="text" class="form-control" placeholder="Price" name="pizzaprice" style="width: 200px;
+      display: inline;margin: auto">
+      <input style="display: inline" type="submit" name="" value="Update" class="btn btn-success">
+
+    </div>
+  </form>
+{% endblock content %}
