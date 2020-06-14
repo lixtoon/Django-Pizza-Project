@@ -1,10 +1,12 @@
 {% extends "base.html" %}
+{% load static %}
 {% block content %}
   <nav class="navbar navbar-light bg-light">
     <a class="navbar-brand">WELCOME</a>
     <a class="btn btn-success" href="/adminlogout/">Login</a>
   </nav>
-  <div class="container-fluid" style="position: relative;">
+  <div class="container-fluid" style="position: relative;height: 900px;background-size: cover;background-image: url({% static 'img/homepage.jpg' %});">
+
     <div class="container" style="position: absolute;top: 10px;right: 15px;width: 500px;height: 300px;background-color: orange;padding: 40px">
       <h1 style="text-align: center;color: white">Sign Up</h1>
       <form class="" action="" method="post">
