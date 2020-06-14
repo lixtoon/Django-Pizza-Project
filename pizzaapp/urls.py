@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from .views import adminloginview,adminhomepageview, authentificateadmin, logoutadmin, addpizza, deletepizza, editpizza, editedpizza, backpage
+from .views import adminloginview,adminhomepageview, authentificateadmin, logoutadmin, addpizza, deletepizza, editpizza, editedpizza, backpage, homepageview
 
 
 urlpatterns = [
@@ -13,4 +13,5 @@ urlpatterns = [
     path('deletepizza/<int:pizzapk>/', deletepizza),
     path('editpizza/<int:pizzapk>/', editpizza),
     path('editpizza/<int:pizzapk>/update/', editedpizza),
+    path('',homepageview),
 ]

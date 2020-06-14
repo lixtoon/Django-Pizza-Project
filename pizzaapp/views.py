@@ -51,3 +51,7 @@ def editedpizza(request, pizzapk):
 
 def backpage(request):
     return redirect('adminhomepage')
+
+def homepageview(request):
+    return render(request, "homepage.html")
+    pass
