@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand">WELCOME USER</a>
+  <a class="btn btn-error" href="/loginuser/">Back</a>
+</nav>
+<h1>Login</h1>
+  <form class="" action="/customer/authenticate/" method="post">
+    {% csrf_token %}
+    <input type="text" name="username" placeholder="username">
+    <input type="password" name="password" placeholder="password">
+    <input type="submit" value="submit">
+  </form>
+
+  {% for message in messages %}
+    <p style="text-align: center">{{message}}</p>
+
+  {% endfor %}
+{% endblock content %}
+
+
+customer/authenticate/
